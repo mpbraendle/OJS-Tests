@@ -8,22 +8,22 @@ Frontend (FE),,,,,
 ,Galley eines exemplarischen Artikels anzeigen ,Prio 1,Bernhard Schubert,,$JOURNAL_URL/article/view/$ARTICLE_ID/$GALLEY_ID → HTTP 200
 ,DOI: Vorhanden und kann aufgelöst werden,Prio 2,,,
 ,Vorhandensein und Abrufbarkeit von Bilder/Audio/Video,Prio 2,,,
-,Navigation vorhanden,Prio 1,Bernhard Schubert,,Seite $JOURNAL_URL enthält Element <div class="pkp_navigation_primary_wrapper">
+,Navigation vorhanden,Prio 1,Bernhard Schubert,,Seite $JOURNAL_URL enthält Element <div class=\"pkp_navigation_primary_wrapper\">
 ,Navigation führt zur gewünschten Zielseite,"Prio 1, 2",Bernhard Schubert,,???
 ,2. Verlinkungen überprüfen,Prio 3,,,
-,Seitenleiste/Footer vorhanden,Prio 1,Bernhard Schubert,,Seite $JOURNAL_URL enthält Element <div class="pkp_structure_sidebar left">/Seite $JOURNAL_URL enthält Element <div class="pkp_structure_footer_wrapper">
+,Seitenleiste/Footer vorhanden,Prio 1,Bernhard Schubert,,Seite $JOURNAL_URL enthält Element <div class=\"pkp_structure_sidebar left\">/Seite $JOURNAL_URL enthält Element <div class=\"pkp_structure_footer_wrapper\">
 ,Sprachwechsel vorhanden/funktioniert,Prio 2,,,
-,Suchfunktion vorhanden,Prio 1,Sebastian Schmidt,,
+,Suchfunktion vorhanden,Prio 1,Sebastian Schmidt,"Die Seite \"search\" ist vorhanden und enthält ein Formular zur Suche von Dokumenten","HTTP 200 + .search_input als Klasse auf Seite auffindbar"
 ,Suchfunktion liefert erwartetes Resultat,Prio 3,,,
 ,,,,,
 Backend (BE),,,,,
-,Standard-OJ-Login in BE möglich,Prio 1,Sebastian Schmidt,,
+,Standard-OJ-Login in BE möglich,Prio 1,Sebastian Schmidt,"Der Login mit einem bereitgestellen Nutzeraccount ist über die seite \"login\" möglich. Nach dem Login wird das Backend aufgerufen","Ausfüllen und absenden des Login Forms -> Weiterleitung auf \"submissions\" mit Code 200
 ,Standard-OJ-Login mit verschiednenen Usern/Rollen möglich,Prio 2,,,
 ,Admin-UI wiederspiegelt die vergebenen Benutzer-Berechtigungen ,Prio 2,,,
-,Plugin-Galerie lässt sich aufrufen ,Prio 1,Sebastian Schmidt,,
+,Plugin-Galerie lässt sich aufrufen ,Prio 1,Sebastian Schmidt,Die Plugin-Gallerie lässt sich aufrufen und nach kurzer Verzögerung werden die mögichen Plugins aufgelistet, "\"management/settings/website#plugins/pluginGallery" --> Http 200 + nach 3(?) Sekunden: \"#component-grid-plugins-plugingallerygrid-row-0\" in DOM enthalten
 ,,,,,
 Journal (BE),,,,,
-,Ausgaben-Übersicht (BE) lässt sich aufrufen,Prio 1,Sebastian Schmidt,,
+,Ausgaben-Übersicht (BE) lässt sich aufrufen,Prio 1,Sebastian Schmidt,Die Seite zur Übersicht der Ausgaben lässt sich aufrufen, " \"manageIssues\" --> HTTP 200"
 ,Ausgaben: neue Ausgabe kann angelegt werden,Prio 3,,,
 ,Ausgabe kann publiziert werden,Prio 3,,,
 ,Website-Einstellungen: Liste der Plugins lässt sich aufrufen,Prio 1,Joao Martins,,
