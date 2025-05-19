@@ -1,56 +1,56 @@
-﻿Themenbereich,Prüfung,Priorität,Beteiligte,Beschreibendes Prüfkriterium,Technisches Prüfkriterium
-Frontend (FE),,,,,
-,"Startseite, statische Seiten vorhanden & weisen gewünschte Inhalte auf",Prio 1,Kristian Gavran ,"Startseite der OJS-Instanz kann aufgerufen werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",<div class=’pkp_structure_page’> → vorhanden
-,Aktuelle Ausgabe eines Journals anzeigen ,Prio 1,Kristian Gavran ,"Seite der aktuellen Publikation kann identifiziert werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",$JOURNAL_URL/issue/view/$NUMBER → HTTP-Code 200
-,Detailseite eines Artikels vorhanden,Prio 1,Kristian Gavran ,"Detailseite eines Artikels kann abgerufen werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",$JOURNAL_URL/article/view/$NUMBER → HTTP-Code 200
-,Archiv eines Journals anzeigen,Prio 1,Kristian Gavran ,"Archivseite eines Journals kann aufgerufen werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",$ARTICLE_URL/pdf → HTTP 200
-,Galley einer Journal-Ausgabe anzeigen ,Prio 2,,,
-,Galley eines Artikels anzeigen ,Prio 1,Bernhard Schubert,Seite lässt sich aufrufen,$JOURNAL_URL/article/view/$ARTICLE_ID/$GALLEY_ID → HTTP-Code 200
-,DOI: ist Vorhanden und kann aufgelöst werden,Prio 2,,,
-,Vorhandensein und Abrufbarkeit von Bilder/Audio/Video,Prio 2,,,
-,Navigation vorhanden,Prio 1,Bernhard Schubert,"Seite lässt sich aufrufen, HTML-Element kann abgefragt werden.",Seite $JOURNAL_URL enthält Element <div class='pkp_navigation_primary_wrapper'>
-,Navigation führt zur gewünschten Zielseite,"Prio 1, 2",Bernhard Schubert,,???
-,2. Verlinkungen überprüfen,Prio 3,,,
-,Seitenleiste/Footer vorhanden,Prio 1,Bernhard Schubert,"Seite lässt sich aufrufen, HTML-Element kann abgefragt werden.",Seite $JOURNAL_URL enthält Elemente <div class='pkp_structure_sidebar left'> und <div class='pkp_structure_footer_wrapper'>
-,Sprachwechsel vorhanden/funktioniert,Prio 2,,,
-,Suchfunktion vorhanden,Prio 1,Sebastian Schmidt,Die Seite ‘search’ ist vorhanden und enthält ein Formular zur Suche von Dokumenten,HTTP 200 + .search_input als Klasse auf Seite auffindbar
-,Suchfunktion liefert erwartetes Resultat,Prio 3,,,
-,,,,,
-Backend (BE),,,,,
-,Standard-OJ-Login in BE möglich,Prio 1,Sebastian Schmidt,Der Login mit einem bereitgestellen Nutzeraccount ist über die seite ‘login’ möglich. Nach dem Login wird das Backend aufgerufen,Ausfüllen und absenden des Login Forms → Weiterleitung auf ‘$JOURNAL_URL/submissions’ mit HTTP-Code 200
-,Standard-OJ-Login mit verschiednenen Usern/Rollen möglich,Prio 2,,,
-,Admin-UI wiederspiegelt die vergebenen Benutzer-Berechtigungen ,Prio 2,,,
-,Plugin-Galerie lässt sich aufrufen ,Prio 1,Sebastian Schmidt,Die Plugin-Gallerie lässt sich aufrufen und nach kurzer Verzögerung werden die mögichen Plugins aufgelistet,management/settings/website#plugins/pluginGallery’ --> HTTP-Code 200 + nach 3(?) Sekunden: ‘#component-grid-plugins-plugingallerygrid-row-0’ in DOM enthalten
-,,,,,
-Journal (BE),,,,,
-,Ausgaben-Übersicht (BE) lässt sich aufrufen,Prio 1,Sebastian Schmidt,Die Seite zur Übersicht der Ausgaben lässt sich aufrufen,CSS-Klasse ‘manageIssues’ vorhanden→ HTTP 200
-,Ausgaben: neue Ausgabe kann angelegt werden,Prio 3,,,
-,Ausgabe kann publiziert werden,Prio 3,,,
-,Website-Einstellungen: Liste der Plugins lässt sich aufrufen,Prio 1,Joao Martins,,
-,Website-Einstellungen: ein spezifisches PKP-Plugin ist vorhanden,Prio 1,Joao Martins,,
-,Website-Einstellungen: ein spezifisches PKP-Plugin lässt sich aktivieren/deaktivieren,Prio 1,Joao Martins,,
-,"Statistiken: Übersicht lässt sich aufrufen, Tabellen-Inhalte vorhanden",Prio 1,Joao Martins,,
-,Neuen Benutzer anlegen,Prio 3,,,
-,,,,,
-Workflow (BE),,,,,
-,Einreichung: Übersicht lässt sich aufrufen,Prio 1,Ronald Steffen,Der Aufruf von mindestens einem Tab der Submissions-Seite (z.B. http://<base url>/submissions#active) ist erfolgreich und der Button 'New Submissions' ist verfügbar.,Seite aufrufbar mit HTTP-Code 200 mit regex 'href.*\/submission\/wizard' für den Button
-,Nutzer/innen: Übersicht lässt sich aufrufen,Prio 1,Ronald Steffen,Der Aufruf von 'http://<base_url>/management/settings/access#users' ist erfolgreich. Es gibt mindestens einen User in der Liste (Admin).,Seite aufrufbar mit HTTP-Code 200 mit <tr> mit ID #component-grid-settings-user-usergrid-row-1 existiert.
-,Einreichung: neue Einreichung kann begonnen und beendet werden,Out-Of-Scope,,,
-,Einreichung: über Schnelleinreichungs-Plugin sicherstellen,Out-Of-Scope,,,
-,Beiträger/innen hinzufügen,Out-Of-Scope,,,
-,Journal-Editor zuweisen,Out-Of-Scope,,,
-,Fahne hinzufügen,Out-Of-Scope,,,
-,Artikel publizieren,Out-Of-Scope,,,
-,Artikel zurückziehen,Out-Of-Scope,,,
-,,,,,
-Administration ,,,,,
-,Administrationsseite lässt sich aufrufen,Prio 1,Ronald Steffen,Der Aufruf von 'http://<base url>/index.php/index/admin' ist erfolgreich. , HTTP-Code 200
-,Systeminformationen lassen sich anzeigen (ggf. spezifische Einträge prüfen),Prio 1,Ronald Steffen,Der Aufruf von 'http://<base url>/index.php/index/admin/systemInfo' ist erfolgreich. , HTTP-Code 200
-,"XML-Export prüfen (u.a. auch Crossref, DOAJ, XML)",Prio 2,,,
-,E-Mail Vorlagen prüfen,Prio 3,,,
-,Begutachtungs-Formulare prüfen,Out-Of-Scope,,,
-,Vorhandensein/Aktivstatus von spezifischen Plugins prüfen,Prio 2,,,
-,,,,,
-Plugins,,,,,
-,Plugin-Konfiguration prüfen (sollte aufrzfbar sein),Prio 2,,,
-,Funktionstest für spezifische Plugins durchführen,Prio 2,,,
+Themenbereich,Prüfung,Priorität,Beteiligte,Beschreibendes Prüfkriterium,Technisches Prüfkriterium,ID,Abhängigkeiten
+Frontend (FE),,,,,,,
+,"Startseite, statische Seiten vorhanden & weisen gewünschte Inhalte auf",Prio 1,Kristian Gavran ,"Startseite der OJS-Instanz kann aufgerufen werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",<div class=’pkp_structure_page’> → vorhanden,1,
+,Aktuelle Ausgabe eines Journals anzeigen ,Prio 1,Kristian Gavran ,"Seite der aktuellen Publikation kann identifiziert werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",$BASE_URL/issue/current → HTTP-Code 200 (Setzen Variable $ARTICLE_URL),2,
+,Detailseite eines Artikels vorhanden,Prio 1,Kristian Gavran ,"Detailseite eines Artikels kann abgerufen werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",$ARTICLE_URL → HTTP-Code 200,3,2
+,Archiv eines Journals anzeigen,Prio 1,Kristian Gavran ,"Archivseite eines Journals kann aufgerufen werden. Korrekter HTTP-Coder wird zurückgeliefert, Zentrales HTML-Element kann abgefragt werden.",$ARTICLE_URL/? → HTTP 200,4,"2, Galley_Nr"
+,Galley einer Journal-Ausgabe anzeigen ,Prio 2,,,,5,
+,Galley eines Artikels anzeigen ,Prio 1,Bernhard Schubert,Seite lässt sich aufrufen,$BASE_URL/article/view/$ARTICLE_ID/$GALLEY_ID → HTTP-Code 200,6,"2, Galley Nr"
+,DOI: ist Vorhanden und kann aufgelöst werden,Prio 2,,,,7,
+,Vorhandensein und Abrufbarkeit von Bilder/Audio/Video,Prio 2,,,,8,
+,Navigation vorhanden,Prio 1,Bernhard Schubert,"Seite lässt sich aufrufen, HTML-Element kann abgefragt werden.",Seite $BASE_URL enthält Element $NAVIGATION_XPATH <div class='pkp_navigation_primary_wrapper'>,9,
+,Navigation führt zur gewünschten Zielseite,Prio 2,Bernhard Schubert,,???,10,
+,2. Verlinkungen überprüfen,Prio 3,,,,11,
+,Seitenleiste/Footer vorhanden,Prio 1,Bernhard Schubert,"Seite lässt sich aufrufen, HTML-Element kann abgefragt werden.",Seite $BASE_URL enthält Elemente $SIDEBAR_XPATH <div class='pkp_structure_sidebar left'> (falls $SIDEBAR_XPATH gesetzt) und $FOOTER_XPATH <div class='pkp_structure_footer_wrapper'>,12,
+,Sprachwechsel vorhanden/funktioniert,Prio 2,,,,13,
+,Suchfunktion vorhanden,Prio 1,Sebastian Schmidt,Die Seite ‘search’ ist vorhanden und enthält ein Formular zur Suche von Dokumenten,ite $BASE_URL HTTP 200 + $SEARCH_XPATH .search_input als Klasse auf Seite auffindbar,14,
+,Suchfunktion liefert erwartetes Resultat,Prio 3,,,,15,
+,,,,,,16,
+Backend (BE),,,,,,"",
+,Standard-OJ-Login in BE möglich,Prio 1,Sebastian Schmidt,Der Login mit einem bereitgestellen Nutzeraccount ist über die seite ‘login’ möglich. Nach dem Login wird das Backend aufgerufen,"Ausfüllen und absenden des Login Forms (Identifikation per ActionLink -> login/signin (@name=username + @name=password, @type='submit' → Weiterleitung auf ‘$BASE_URL/submissions’ mit HTTP-Code 200",17,
+,Standard-OJ-Login mit verschiednenen Usern/Rollen möglich,Prio 2,,,,18,
+,Admin-UI wiederspiegelt die vergebenen Benutzer-Berechtigungen ,Prio 2,,,,19,
+,Plugin-Galerie lässt sich aufrufen ,Prio 1,Sebastian Schmidt,Die Plugin-Gallerie lässt sich aufrufen und nach kurzer Verzögerung werden die mögichen Plugins aufgelistet,management/settings/website#plugins/pluginGallery’ --> HTTP-Code 200 + nach 3 Sekunden: ‘#component-grid-plugins-plugingallerygrid-row-0’ in DOM enthalten,20,17
+,,,,,,,
+Journal (BE),,,,,,,
+,Ausgaben-Übersicht (BE) lässt sich aufrufen,Prio 1,Sebastian Schmidt,Die Seite zur Übersicht der Ausgaben lässt sich aufrufen,CSS-Klasse ‘manageIssues’ vorhanden→ HTTP 200,21,17
+,Ausgaben: neue Ausgabe kann angelegt werden,Prio 3,,,,,
+,Ausgabe kann publiziert werden,Prio 3,,,,,
+,Website-Einstellungen: Liste der Plugins lässt sich aufrufen,Prio 1,Joao Martins,Anaolg zu 20,,22,17
+,Website-Einstellungen: ein spezifisches PKP-Plugin ist vorhanden,Prio 1,Joao Martins,,,23,17
+,Website-Einstellungen: ein spezifisches PKP-Plugin lässt sich aktivieren/deaktivieren,Prio 1,Joao Martins,,,24,17
+,"Statistiken: Übersicht lässt sich aufrufen, Tabellen-Inhalte vorhanden",Prio 1,Joao Martins,,,25,17
+,Neuen Benutzer anlegen,Prio 3,,,,,
+,,,,,,,
+Workflow (BE),,,,,,,
+,Einreichung: Übersicht lässt sich aufrufen,Prio 1,Ronald Steffen,Der Aufruf von mindestens einem Tab der Submissions-Seite (z.B. $BASE_URL/submissions#active) ist erfolgreich und der Button 'New Submissions' ist verfügbar.,Seite aufrufbar mit HTTP-Code 200 mit regex 'href.*\/submission\/wizard' für den Button,26,17
+,Nutzer/innen: Übersicht lässt sich aufrufen,Prio 1,Ronald Steffen,Der Aufruf von '$BASE_URL/management/settings/access#users' ist erfolgreich. Es gibt mindestens einen User in der Liste (Admin).,Seite aufrufbar mit HTTP-Code 200 mit <tr> mit ID #component-grid-settings-user-usergrid-row-1 existiert.,27,17
+,Einreichung: neue Einreichung kann begonnen und beendet werden,Out-Of-Scope,,,,,
+,Einreichung: über Schnelleinreichungs-Plugin sicherstellen,Out-Of-Scope,,,,,
+,Beiträger/innen hinzufügen,Out-Of-Scope,,,,,
+,Journal-Editor zuweisen,Out-Of-Scope,,,,,
+,Fahne hinzufügen,Out-Of-Scope,,,,,
+,Artikel publizieren,Out-Of-Scope,,,,,
+,Artikel zurückziehen,Out-Of-Scope,,,,,
+,,,,,,,
+Administration ,,,,,,,
+,Administrationsseite lässt sich aufrufen,Prio 1,Ronald Steffen,Der Aufruf von '$BASE_URL/index/admin' ist erfolgreich. , HTTP-Code 200,28,17
+,Systeminformationen lassen sich anzeigen (ggf. spezifische Einträge prüfen),Prio 1,Ronald Steffen,Der Aufruf von '$BASE_URL/index/admin/systemInfo' ist erfolgreich. , HTTP-Code 200,29,17
+,"XML-Export prüfen (u.a. auch Crossref, DOAJ, XML)",Prio 2,,,,,
+,E-Mail Vorlagen prüfen,Prio 3,,,,,
+,Begutachtungs-Formulare prüfen,Out-Of-Scope,,,,,
+,Vorhandensein/Aktivstatus von spezifischen Plugins prüfen,Prio 2,,,,,
+,,,,,,,
+Plugins,,,,,,,
+,Plugin-Konfiguration prüfen (sollte aufrzfbar sein),Prio 2,,,,,
+,Funktionstest für spezifische Plugins durchführen,Prio 2,,,,,
