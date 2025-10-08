@@ -8,6 +8,6 @@ Als Grundlage der gemeinsam erarbeiterten Test-Case-Liste dienen die Vorarbeiten
 Links zu den Reademe-Dateien der einzelnen Test-Implementierungen:
 
 - [HURL](./testing_hurl/Readme.md)
-- [Playwright](./testing_playwright/Readme.md)
+- [Playwright](./testing_playwright/README.md)
 
 **Bitte beachten: die hier verfügbaren Inhalte sind Work-In-Progress und werden noch stark geändert!**

@@ -2,7 +2,7 @@
 
 # ID 1 - A static page exist (e.g. OJS homepage) & displaying the desired content
 # Also store the URL returned by the server to consider possible rewrites on the server side
-GET {{base_url}}
+GET {{BASE_URL}}
 [Options]
 location:true # follow redirects
 HTTP 200

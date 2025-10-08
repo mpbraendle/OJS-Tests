@@ -1,7 +1,7 @@
 # prio 1 test for OJS 3.3 that require authentication
 
 # Get the (redirected) query_url
-GET {{base_url}}
+GET {{BASE_URL}}
 [Options]
 location:true # follow redirects
 HTTP 200
@@ -27,8 +27,8 @@ X-CSRF-TOKEN: {{csrf_token}}
 [Options]
 location:true # follow redirects
 [Form]
-username: {{test_username}}
-password: {{test_password}}
+username: {{TEST_USERNAME}}
+password: {{TEST_PASSWORD}}
 HTTP 200
 
 # Check we are logged in
@@ -69,20 +69,6 @@ location:true # follow redirects
 HTTP 200
 [Asserts]
 jsonpath "$..content" nth 0 contains "component-grid-settings-plugins-settingsplugingrid-category-themes-row-defaultthemeplugin"
-
-# # ID 24 - Website settings: a specific plugin can be activated/deactivated
-# # This test is commented out because it would change the state of the system
-# # Ein spezifisches Plugin lässt sich aktivieren/deaktivieren
-# POST {{query_url}}/$$$call$$$/grid/settings/plugins/settings-plugin-grid/enable?csrfToken={{csrf_token}}&plugin=developedbyblockplugin&category=blocks
-# X-CSRF-TOKEN: {{csrf_token}}
-# [Options]
-# location:true # follow redirects
-# HTTP 200
-# POST {{query_url}}/$$$call$$$/grid/settings/plugins/settings-plugin-grid/disable?csrfToken={{csrf_token}}&plugin=developedbyblockplugin&category=blocks
-# X-CSRF-TOKEN: {{csrf_token}}
-# [Options]
-# location:true # follow redirects
-# HTTP 200
 
 # ID 25 - Statistics: overview accessible, table contents present
 # Artikelstatistik lässt sich aufrufen

@@ -8,3 +8,4 @@ testing_cypress/package-lock.json
 testing_playwright/__pycache__/
 testing_playwright/.env
 testing_hurl/vars.env
+testing_hurl/prio2.hurl

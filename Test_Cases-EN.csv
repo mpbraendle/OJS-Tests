@@ -28,7 +28,7 @@ Test ID,Topic Area,Test,Priority,Responsible,Description,Technical Test Criteria
 ,,Issue: can be published,Prio 3,,,,
 22,,Website settings: plugin list accessible,Prio 1,Joao Martins,Analogous to ID 20,,17
 23,,Website settings: a specific plugin is present,Prio 1,Joao Martins,,,17
-24,,Website settings: a specific plugin can be activated/deactivated,Prio 1,Joao Martins,,,17
+24,,Website settings: a specific plugin can be activated/deactivated,Prio 2,Joao Martins,,,17
 25,,"Statistics: overview accessible, table contents present",Prio 1,Joao Martins,,,17
 ,,Users: new user can be created,Prio 3,,,,
 ,,,,,,,

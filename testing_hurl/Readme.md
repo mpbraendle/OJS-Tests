@@ -13,8 +13,8 @@ Install via your system package manager. See [HURL website](https://hurl.dev/doc
 Edit or create a file `vars.env` with the following content:
 
 ```bash
-base_url=<your default OJS URL>
-test_username=<your OJS username to run authenticated tests>
+BASE_URL=<your default OJS URL>
+TEST_USERNAME=<your OJS username to run authenticated tests>
 ```
 
 ## General Usage
@@ -22,8 +22,10 @@ test_username=<your OJS username to run authenticated tests>
 Run a specific set of tests for a specified URL:
 
 ```bash
-hurl --variable base_url=https://opengenderjournal.de --test prio1.hurl
+hurl --variable BASE_URL=https://opengenderjournal.de --test prio1.hurl
 ```
+
+Note: In case of issues with expired SSL certificates you can add the options `--insecure` or `--ssl-no-revoke` to the command line.
 
 Run a specific test file with default variables:
 
@@ -50,27 +52,25 @@ Set password via environment variable.
 ### On Linux or MacOS (Bash)
 
 ```bash
-export HURL_test_password="my_value"
+export HURL_TEST_PASSWORD="my_value"
 ```
 
 ### On Windows (Powershell)
 
 ```ps1
-$HURL_test_password = "my_value"
+$HURL_TEST_PASSWORD = "my_value"
 ```
 
 Run a specific test file with authentication:
 
 ```bash
-hurl --variables-file vars.env --secret test_password=$HURL_test_password --test prio1-auth.hurl
+hurl --variables-file vars.env --secret TEST_PASSWORD=$HURL_TEST_PASSWORD --test prio1-auth.hurl
 ```
 
 ## Available test files
 
 - `prio1.hurl`: Priority 1 tests as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (no authentication required)
 - `prio1-auth.hurl`: Priority 1 tests as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (authentication required)
-
-Note: Test ID 24 (enable/disable plugins) has been commented out because it would change the systems state.
 
 ## Advanced examples
 
@@ -81,7 +81,7 @@ This currently doesn't work with authentication if the password is different for
 Create a file `urls.txt` with the URLs you want to test, one per line and run the following script:
 
 ```Powershell
-Get-Content urls.txt | ForEach-Object { Write-Host $_; hurl --variable base_url=$_ --report-html results --test prio1.hurl }
+Get-Content urls.txt | ForEach-Object { Write-Host $_; hurl --variable BASE_URL=$_ --report-html results --test prio1.hurl }
 ```
 
 This will create a subdirectory `results` with an index.html file that summarizes the results for all URLs.
@@ -92,7 +92,7 @@ Create a file `urls.txt` with the URLs you want to test, one per line and run th
 
 ```Powershell
 # Run the HURL test for each URL and generate a JSON report
-Get-Content urls.txt | ForEach-Object { Write-Host $_; hurl --variable base_url=$_ --report-json results-json --test prio1.hurl }
+Get-Content urls.txt | ForEach-Object { Write-Host $_; hurl --variable BASE_URL=$_ --report-json results-json --test prio1.hurl }
 
 # Extract information from the JSON report
 (Get-Content results-json\report.json -Raw | ConvertFrom-Json) | Select-Object -ExpandProperty entries | Where-Object { $_.index -eq '1' } | ForEach-Object {
