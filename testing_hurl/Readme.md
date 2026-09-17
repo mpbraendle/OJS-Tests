@@ -2,7 +2,7 @@
 
 Website: https://hurl.dev
 
-**Important note:** Specific tests of the frontend depend on the theme used and may need to be adapted. The tests provided here have been developed for the **default** and **manuscript** themes of OJS 3.3.
+**Important note:** Specific tests of the frontend depend on the theme used and may need to be adapted. The tests provided here have been developed for the **default** and **manuscript** themes of OJS 3.3 and OJS 3.5.
 
 ## Install HURL
 
@@ -69,12 +69,15 @@ hurl --variables-file vars.env --secret TEST_PASSWORD=$HURL_TEST_PASSWORD --test
 
 ## Available test files
 
-- `prio1.hurl`: Priority 1 tests as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (no authentication required)
-- `prio1-auth.hurl`: Priority 1 tests as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (authentication required)
+- `prio1.hurl`: Priority 1 tests for OJS 3.3 and 3.5 as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (no authentication required)
+- `prio1-ojs-3.3-auth.hurl`: Priority 1 tests for OJS 3.3 as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (authentication required)
+- `prio1-ojs-3.5-auth.hurl`: Priority 1 tests for OJS 3.5 as listed in the [test cases overview csv file](https://github.com/mpbraendle/OJS-Tests/blob/main/Test_Cases-EN.csv) (authentication required)
 
 ## Advanced examples
 
 This currently doesn't work with authentication if the password is different for different URLs.
+
+Note: For debugging use the --verbose command line option or use the [options] setting "ouput: out.html" to store the HTML response.
 
 ### Run tests from a Windows (Powershell) system for multiple URLs
 
