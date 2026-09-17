@@ -1,4 +1,4 @@
-# prio 1 test for OJS 3.3
+# prio 1 test for OJS 3.3 and OJS 3.5
 
 # ID 1 - A static page exist (e.g. OJS homepage) & displaying the desired content
 # Also store the URL returned by the server to consider possible rewrites on the server side
