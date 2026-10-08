@@ -5,4 +5,9 @@ In dieser Repo finden sich die Resultate der Arbeiten an einem gemeinsamen [Vorg
 
 Als Grundlage der gemeinsam erarbeiterten Test-Case-Liste dienen die Vorarbeiten der [Universitätsbibliothek Wien](https://bibliothek.univie.ac.at/) und [Universitätsbibliothek Zürich](https://www.ub.uzh.ch).
 
+Links zu den Reademe-Dateien der einzelnen Test-Implementierungen:
+
+- [HURL](./testing_hurl/Readme.md)
+- [Playwright](./testing_playwright/README.md)
+
 **Bitte beachten: die hier verfügbaren Inhalte sind Work-In-Progress und werden noch stark geändert!**
