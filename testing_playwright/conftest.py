@@ -27,6 +27,14 @@ def theme(request):
 def existing_plugin(request):
     return request.config.getoption("--existing_plugin")
 
+@pytest.fixture(scope="session")
+def ojs_version(request):
+    return request.config.getoption("--ojs-version")
+
+@pytest.fixture(scope="session")
+def ojs_language(request):
+    return request.config.getoption("--ojs-language")
+
 
 def pytest_addoption(parser):
     parser.addoption("--ojs-base-url", action="store", default=os.getenv("BASE_URL"),
@@ -39,5 +47,9 @@ def pytest_addoption(parser):
                      help="Frontend theme to use for testing", choices=["Default", "Immersion"])
     parser.addoption("--existing_plugin", action="store", default=os.getenv("EXISTING_PLUGIN_NAME", "Default Theme"),
                      help="Specify the name of an existing plugin to check for in the plugin gallery")
+    parser.addoption("--ojs-version", action="store", default=os.getenv("OJS_VERSION", "3.3"),
+                     help="OJS version to use for testing")
+    parser.addoption("--ojs-language", action="store", default=os.getenv("OJS_LANGUAGE", None),
+                     help="Language to use for testing, required for OJS 3.5 (Backend Tests)")
 
 
